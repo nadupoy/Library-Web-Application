@@ -78,3 +78,13 @@ Resultant change in the admin site is shown below:
 
 ![Author objects representation by value in the admin site.](./images/documentation/author_object%2001.png "Author objects representation by value in the admin site.")
 
+- I also learnt how to hide the secret key by referencing it  externally before uploading to Github [here](https://dev.to/vladyslavnua/how-to-protect-your-django-secret-and-oauth-keys-53fl).
+
+I encountered the following  error when installing the [python-dotenv package](https://pypi.org/project/python-dotenv/) which makes the above external referencing possible:
+
+```
+    Encountered error while generating package metadata.
+```
+I managed to find a solution for the above [here](https://sebhastian.com/error-metadata-generation-failed/).
+
+- I learned to create a *requirements.txt* file [here](https://www.w3schools.com/django/django_deploy_requirements.php).
