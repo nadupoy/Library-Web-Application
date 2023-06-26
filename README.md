@@ -53,9 +53,9 @@ Using the Python shell to query the objects in the database gave the following o
 ```
 This was also reflected in the admin site as shown below and is not an effecient way of representing the objects in the database.
 
-![Author object representation in the admin site.](./images/documentation/author_object.png "Author object representation in the admin site.")
+![Author object representation in the admin site.](https://github.com/nadupoy/Library-Web-Application/blob/main/images_documentation/author_object.png?raw=true "Author object representation in the admin site.")
 
-![Book object representation in the admin site.](./images/documentation/book_object.png "Book object representation in the admin site.")
+![Book object representation in the admin site.](https://github.com/nadupoy/Library-Web-Application/blob/main/images_documentation/book_object.png?raw=true "Book object representation in the admin site.")
 
 I wanted the objects to be represented by their names in the database.
 
@@ -76,7 +76,7 @@ Sources that provided the above solution can be found [here](https://docs.django
 
 Resultant change in the admin site is shown below:
 
-![Author objects representation by value in the admin site.](./images/documentation/author_object%2001.png "Author objects representation by value in the admin site.")
+![Author objects representation by value in the admin site.](https://github.com/nadupoy/Library-Web-Application/blob/main/images_documentation/author_object%2001.png?raw=true "Author objects representation by value in the admin site.")
 
 - I also learnt how to hide the secret key by referencing it  externally before uploading to Github [here](https://dev.to/vladyslavnua/how-to-protect-your-django-secret-and-oauth-keys-53fl).
 
