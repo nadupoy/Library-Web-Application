@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta lang="en">
+        <meta charset="UTF-8">
+        <title>{% block title %} Library App {% endblock %}</title>
+    </head>
+
+    <body>
+        <header>
+            {% block navbar %}
+            <nav>
+                <a href="/">Home</a>
+                <a href="/library/">Library</a>
+            </nav>
+            {% endblock %}
+        </header>
+
+        <main>
+            {% block content%}{% endblock %}
+        </main>
+
+        {% block footer %}
+        <footer>
+            <p>Built by <a>Nadupoy</a>.</p>
+        </footer>
+        {% endblock %}
+    </body>
+</html>

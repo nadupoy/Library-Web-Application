@@ -1,0 +1,18 @@
+{% extends "./base.html" %}
+
+{% block content%}
+<h1>This is the Library page.</h1>
+
+<section>
+    {% for book in books %}
+    <div>
+        <figure>
+            {% load static %}
+            <img src="{% static '{{ book.photo.url }}' %}" alt="{{ book.title }} by {{ book.author }}">
+            <figcaption> {{ book.title }} by {{ book.author }} </figcaption>
+        </figure>
+        <button>Details</button>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
