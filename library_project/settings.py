@@ -121,9 +121,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_ROOT = 'static/library_app/book_covers/'
-MEDIA_URL = ''
+STATIC_URL = '/static/'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = 'media'
 
 
 # Default primary key field type
