@@ -32,7 +32,7 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey("Author", on_delete=models.CASCADE)
     genre = models.CharField(max_length=7, choices=GENRES)
-    thumbnail = models.ImageField(upload_to="book_covers")
+    thumbnail = models.ImageField(upload_to="media")
     blurb = models.CharField(max_length=100)
     # availability = # *an input field, so it should probably be in its own class and be externally referenced.
 
