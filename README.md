@@ -83,8 +83,52 @@ Resultant change in the admin site is shown below:
 I encountered the following  error when installing the [python-dotenv package](https://pypi.org/project/python-dotenv/) which makes the above external referencing possible:
 
 ```
-    Encountered error while generating package metadata.
+Encountered error while generating package metadata.
 ```
 I managed to find a solution for the above [here](https://sebhastian.com/error-metadata-generation-failed/).
 
 - I learned to create a *requirements.txt* file [here](https://www.w3schools.com/django/django_deploy_requirements.php).
+
+- The book thumbnails were not being rendered in the *details.html* template, with the following error being raised when querying the database in the python shell:
+
+```
+...
+FileNotFoundError: [WinError 2] The system cannot find the file specified:
+...
+```
+
+## Handling Media Files:
+I managed to find a solution to Django being unable to locate the uploaded media files.
+
+[This article](https://testdriven.io/blog/django-static-files/) by [testdriven.io](https://testdriven.io/) provided a good introduction by differentiating between *static files* and *media files*.
+
+1. I started by adding the following to the *library_project.settings* file:
+```python
+    ...
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = 'media'
+    ...
+```
+As a result, files uploaded by the user(s) would be stored in the *media* directory.
+
+2. Media files need a url to enable Django to locate and fetch them. Therefore I added the following to *library_project.urls*. This is explained further in detail [here](https://testdriven.io/blog/django-static-files/#media-files-in-development-mode).
+```python
+    ...
+    from django.conf import settings
+    from django.conf.urls.static import static
+    ...
+
+    if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+3. It was at this point that I first learnt about the [get_media_prefix](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#get-media-prefix) built-in template tag.
+
+It is used to render media files into Django's HTML template.
+```html
+    ...
+    {% load static %}
+    {% get_media_prefix as MEDIA_PREFIX %}
+    ...
+    <img src="{{ MEDIA_PREFIX }}{{ book.thumbnail.url }}" width="141px" height="225px" alt="Cover image of {{ book.title }} by {{ book.author }}">
+```
