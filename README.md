@@ -132,3 +132,33 @@ It is used to render media files into Django's HTML template.
     ...
     <img src="{{ MEDIA_PREFIX }}{{ book.thumbnail.url }}" width="141px" height="225px" alt="Cover image of {{ book.title }} by {{ book.author }}">
 ```
+
+## Dynamic URLs:
+I wanted each book to have it's respective title appear in the URL when the *details.html* template was rendered in the browser.
+
+To achieve this, I used the following function in *views.py*:
+
+```python
+    def book_details_page(request, book_title):
+        book = Book.objects.get(title=book_title)
+        context = {
+            'book': book,
+        }
+        return render(request, 'library_app/details.html', context)
+```
+
+The above view function was mapped onto a URL in *urls.py* as follows:
+
+```python
+    urlpatterns = [
+        ...
+        path('library/<book_title>/', views.book_details_page, name='details')
+        ...
+    ]
+```
+
+The URL would then be referenced in *library.html* as shown below:
+
+```HTML
+    <button type="button"><a href="{% url 'details' book.title %}">Details</a></button>
+```
