@@ -33,7 +33,7 @@ class Book(models.Model):
     author = models.ForeignKey("Author", on_delete=models.CASCADE)
     genre = models.CharField(max_length=7, choices=GENRES)
     thumbnail = models.ImageField(upload_to="media")
-    blurb = models.CharField(max_length=100)
+    blurb = models.TextField()
     # availability = # *an input field, so it should probably be in its own class and be externally referenced.
 
     def __str__(self):
