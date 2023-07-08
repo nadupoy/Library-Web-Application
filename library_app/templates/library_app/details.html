@@ -1,5 +1,14 @@
 {% extends "./base.html" %}
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
 
 {% block content %}
-<h1>Details about a book.</h1>
+<h2>{{ book.title }} by {{ book.author }}</h2>
+
+<section>
+    <img src="{{ MEDIA_PREFIX }}{{ book.thumbnail.url }}" width="282px" height="450px" alt="Cover image of {{ book.title }} by {{ book.author }}">
+    <p>
+        {{ book.blurb }}
+    </p>
+</section>
 {% endblock %}
