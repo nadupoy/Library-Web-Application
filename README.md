@@ -147,6 +147,9 @@ To achieve this, I used the following function in *views.py*:
         return render(request, 'library_app/details.html', context)
 ```
 
+This is further expounded on below:
+![A sketch explaining the dynamic URL function.](https://github.com/nadupoy/Library-Web-Application/blob/main/images_documentation/IMG_3140.png?raw=true "A sketch explaining the dynamic URL function.")
+
 The above view function was mapped onto a URL in *urls.py* as follows:
 
 ```python
@@ -162,3 +165,6 @@ The URL would then be referenced in *library.html* as shown below:
 ```HTML
     <button type="button"><a href="{% url 'details' book.title %}">Details</a></button>
 ```
+
+## Version Control:
+I also learnt how to add files the have already been commited to *.gitignore* [here](https://stackoverflow.com/questions/25436312/gitignore-not-working).
