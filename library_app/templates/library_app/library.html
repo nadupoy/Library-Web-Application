@@ -12,7 +12,7 @@
             <img src="{{MEDIA_PREFIX}}{{ book.thumbnail.url }}" width="141px" height="225px" alt="Cover image of {{ book.title }} by {{ book.author }}">
             <figcaption> {{ book.title }} by {{ book.author }} </figcaption>
         </figure>
-        <button>Details</button>
+        <button><a href="{% url 'details' book.title %}">Details</a></button>
     </div>
     {% endfor %}
 </section>
